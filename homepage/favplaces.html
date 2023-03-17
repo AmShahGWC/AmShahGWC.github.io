@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Amila's Write Your New York</title>
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="index.html">Home</a>
+            <a href="favplaces.html">Favorite Spots</a>
+            <a href="favfoods.html">Good Food</a>
+            <a href="aboutme.html">About Me</a>
+            <div class="search-container">
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
+                  <button type="button" class="btn btn-outline-success" onclick="look()">Search</button>
+                </form>
+            </div>
+        </div>
+        <br></br>
+        <h1 class="search">Some of My Favorite Neighborhood Spots!</h1>
+        <div id="nyccarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#nyccarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#nyccarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#nyccarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="all-in-nyc_books_are_magic__large.jpg" class="d-block w-100"
+                width = "200"
+                height = "800"
+              >
+              <div class="carousel-caption d-none d-md-block">
+                <h5 class="search" style="background-color: black">Books Are Magic</h5>
+                <p class="search" style="background-color: black" >This is my favorite books store. I've grown up in here, spending hours afterschool, or entire days during summer reading. I've lounged in every corner, on every seating corner in this place. I've explored books from every part of the book store. This place is the best.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="cinemas.jpg" class="d-block w-100"
+                width = "200"
+                height = "800"
+              >
+              <div class="carousel-caption d-none d-md-block">
+                <h5 class="search" style="background-color: black">Cobble Hill Cinemas</h5>
+                <p class="search" style="background-color: black">This is the intimate theater in my neighborhood. There are paintings of movies on the outside, as well as both old and new movies playing on the inside. Movie posters cover the walls, and popcorn smell fills the air. I love it there.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="505_504027947.jpg" class="d-block w-100"
+                width = "10"
+                height = "800"
+              >
+              <div class="carousel-caption d-none d-md-block">
+                <h5 class="search" style="background-color: black">Juju's Cafe and Deli</h5>
+                <p class="search" style="background-color: black">I love getting snacks from one of my local Asian stores. I often pick up sushi burritos or onigiri from here, as well as bubble tea. Their best bubble tea flavor is likely the brown sugar milk tea.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#nyccarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#nyccarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <script type="text/javascript">
+            document.querySelector('#search').addEventListener('input', (e) => {
+              if (e.currentTarget.value=="") {
+                clear()
+              }
+            })
+            const p = document.querySelectorAll(".search");
+
+            function clear() {
+              let mark1 = new RegExp("<mark>", "g");
+              let mark2 = new RegExp("</mark>", "g");
+              for (text of p) {
+                text.innerHTML = (text.innerHTML).replace(mark1, "");
+                text.innerHTML = (text.innerHTML).replace(mark2, "");
+              }
+            }
+
+            function look() {
+              clear()
+              let input = document.querySelector("#search").value;
+              if (input !== "") {
+                let regExp = new RegExp(input, "gi");
+                for (text of p) {
+                  text.innerHTML = (text.innerHTML).replace(regExp, "<mark>$&</mark>");
+                }
+              }
+            }
+            </script>
+    </body>
+    </html>

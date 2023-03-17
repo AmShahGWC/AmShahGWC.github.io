@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Amila's Write Your New York</title>
+    </head>
+    <body>
+        <div class="topnav">
+            <a href="index.html">Home</a>
+            <a href="favplaces.html">Favorite Spots</a>
+            <a href="favfoods.html">Good Food</a>
+            <a href="aboutme.html">About Me</a>
+            <div class="search-container">
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
+                  <button type="button" class="btn btn-outline-success" onclick="look()">Search</button>
+                </form>
+            </div>
+        </div>
+        <br>
+        <h1>My Favorite Foods</h1>
+            <h4 class="margins search">As someone with an incredibly diverse array of ethnicities - I am Moroccan, Filipino, Chinese, Indian, and Spanish - I often use cuisine as a way to connect to my various cultures. Outside of my cultural connections, I generally love being adventurous with my eating, and taking the time to really enjoy the flavors of what I eat.</h4>
+            <br></br>
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <h3 class="search">Moroccan Couscous</h3>
+                  <img id="couscous" alt="Couscous" src="couscous-Photo-source-sahara-experience.jpg"
+                    width = "450"
+                    height = "300">
+                  <p class="search">One of my absolute favorite foods is my Lola's Moroccan couscous. It's been one of my favorites since I was little. The couscous is juicy, and the flavor of the meat paired with the sweetness of the vegetables, like the carrots, is immaculate.</p>
+                      </div>
+                      <div class="col">
+                        <h3 class="search">Chicken Adobo</h3>
+                  <img id="adobo" alt="Adobo" src="chicken-adobo-thumb.jpg"
+                    width = "350"
+                    height = "300">
+                  <p class="search">A classic Filipino dish, chicken adobo, made by my Lolo, is another of my favorite foods. It's incredibly simple to make, if you're making it correctly. Bay leaves, peppercorn, soy sauce, white vinegar, garlic, and chicken, are the recipe for a delicious meal.</p>
+                </div>
+              </div>
+            </div>
+            <br>
+            <h1>Favorite Adventurous Bites</h1>
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <h3 class="search">Horse</h3>
+                  <img id="horse" alt="Horse" src="horse-steak.jpg"
+                      width = "350"
+                      height = "200">
+                  <h3 class="search">Puffin</h3>
+                    <img id="puffin" alt="Puffin" src="smoked-puffin.jpg"
+                      width = "350"
+                      height = "250">
+                </div>
+                <div class="col">
+                  <h3 class="search">Whale</h3>
+                    <img id="whale" alt="Whale" src="roast-whale-with-apples.jpg"
+                      width = "250"
+                      height = "290">
+                  <h3 class="search">Pigeon</h3>
+                    <img id="pigeon" alt="Pigeon" src="pigeon3.jpg"
+                      width = "250"
+                      height = "200">
+                </div>
+                <div class="col">
+                  <h3 class="search">Snails (Escargot)</h3>
+                    <img id="snails" alt="Snails" src="escargot-with-garlic-parsley-butter.webp"
+                      width = "300"
+                      height = "200">
+                  <h3 class="search">Rabbit</h3>
+                    <img id="rabbit" alt="Rabbit" src="3648.webp"
+                      width = "300"
+                      height = "250">
+                </div>
+              </div>
+              <br>
+            </div>
+          </body>
+          <script type="text/javascript">
+            document.querySelector('#search').addEventListener('input', (e) => {
+              if (e.currentTarget.value=="") {
+                clear()
+              }
+            })
+            const p = document.querySelectorAll(".search");
+
+            function clear() {
+              let mark1 = new RegExp("<mark>", "g");
+              let mark2 = new RegExp("</mark>", "g");
+              for (text of p) {
+                text.innerHTML = (text.innerHTML).replace(mark1, "");
+                text.innerHTML = (text.innerHTML).replace(mark2, "");
+              }
+            }
+
+            function look() {
+              clear()
+              let input = document.querySelector("#search").value;
+              if (input !== "") {
+                let regExp = new RegExp(input, "gi");
+                for (text of p) {
+                  text.innerHTML = (text.innerHTML).replace(regExp, "<mark>$&</mark>");
+                }
+              }
+            }
+            </script>
+    </html>

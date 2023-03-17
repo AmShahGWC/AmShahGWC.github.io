@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title class="search">Amila's Write Your New York</title>
+        <style>
+            mark {
+                background-color: yellow;
+                color: black;
+            }
+        </style>
+    </head>
+    <body class="homepagenyc">
+        <div class="topnav">
+            <a href="index.html">Home</a>
+            <a href="favplaces.html">Favorite Spots</a>
+            <a href="favfoods.html">Good Food</a>
+            <a href="aboutme.html">About Me</a>
+            <div class="search-container">
+                <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
+                  <button type="button" class="btn btn-outline-success" onclick="look()">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+          <br></br>
+          <h1 class="search"> Write Your New York</h1>
+          <h2 class="search" >Amila Javier Shah</h2>
+          <br></br>
+          <h4>The Regulars</h4>
+          <p class="search tab1" style="text-align:left;">Eating out isn’t something my family does frequently, because we know how to cook, but when we do it’s almost always at Rucola. Someone will ask where we’re eating out and Rucola is immediately the response, almost like a reflex. Rucola, the Italian restaurant at the end of my block that from the outside remains quiet, like a polite neighbor, even at its busiest hours. Rucola, the restaurant with the ambient warm lighting, smooth wooden tables, floorboards for both floors and ceilings, and a blurry mirror that’s just-for-effect because the sharpness of your reflection is nonexistent, but it makes the whole space look like a painting. Rucola, the restaurant that is roaring with chatter upon opening its doors but settles into a comforting white noise once you sit down. We go there frequently, but we don’t have a designated table because we’re not those kinds of people, so we’ve explored every part of the restaurant (except the bar because we’re not those kinds of people either).</p>
+          <p class="search tab1" style="text-align:left;">When my family moved to Boerum Hill, Rucola was just starting up. I don’t have much memory of its transformation as a restaurant, because when we moved here I was at that age of obliviousness where my world hadn’t yet expanded past the confines of my home. What I do remember is the welcoming feeling of the restaurant, even when we first started going there. Maybe it had something to do with the fact that my dad always called, and still calls, by saying, “hi, I was just wondering if I could get a table for four? We’re just down the block, we can be there in no more than ten minutes.” So no more than ten minutes later we could show up, say we just called, and be greeted by bubbly voices, friendly faces, and confident fingers, pointing us to our seats.</p>
+          <p class="search tab1" style="text-align:left;">That feeling of being tightly squeezed by a hug, that’s the feeling we got when we spoke to the hosts and hostesses, hearing their sureness describing the menu, and catching their knowing smiles when our eyes lit up at a special. Prosciutto, pickled fennel, robiola, roasted trout, kid’s butter pasta that you can’t find on any menu, but that they still give my brother and I like a shared secret between us. They’re fancy without being pretentious, and the rustic, friendly atmosphere of the restaurant makes you feel nothing but welcomed.</p>
+          <p class="search tab1" style="text-align:left;">Going to Rucola became even more wonderful when the people who worked there started remembering us. They’d start to remember the soft cheese I liked, or recommend specific foods to my mom and dad based on what they know they’d usually choose. We’d start to be labeled at the restaurant with those two magical words - “the regulars.” Since we all live in the neighborhood, the host and hostess would recognize my mom and dad on the street and say hello, starting up a conversation because their restaurant, and the whole neighborhood, connects us. They’d introduce themselves in a different light, not just as owners, or host and hostess, but as Julian and Liz, inhabitants of the neighborhood, just like us.</p>
+          <p class="search tab1" style="text-align:left;">That’s what a neighborhood does. It connects you to people you see all the time, whether or not you stop to say hello. In a neighborhood everyone knows each other, is responsible for each other, and remembers each other, because we are all the same. We together are the notes and harmonies that create the song of the neighborhood. Whether it’s the coffee shop two blocks away that gives you a free cookie, or the irritable but secretly kind blonde woman at the brow place that puts you before anybody else even without an appointment, or the man who cleans the front of his house almost every day andwho greets you with a slightly toothless smile and a “God bless you” every time he sees you. The neighborhood remembers you, welcomes you, knows you. I can’t tell you what’s going on in Carroll Gardens, Brooklyn Heights, or any other nearby neighborhood, because they’re not my neighborhood. In my neighborhood we’re all friends, or acquaintances at the very least. The neighborhood pulls us all together, holding us in its arms, keeping us together as one connected community. That’s what every neighborhood does for the people who live in it.</p>
+          <p class="search tab1" style="text-align:left;">My family lives in the neighborhood, so we frequent Rucola. We live in the neighborhood, so Liz and Julian remember us. We live in the neighborhood, so we all say hello on the street. Now my mom and Liz talk about Liz’s newborn son Patrick. We all smile at each other with warm recognition, even behind the masks that we have to wear nowadays. We sit down at Rucola, our faces lit up by the candles on the tables, and feel the tug of invisible strings, tying us to all the other members of the neighborhood who are sitting down for dinner that night. We greet the restaurant, and each other, like greeting old friends, because that’s what the neighborhood does for us.</p>
+        </div>
+        <img id="nycborder" alt="NYCBorder" src="NYC-removebg-preview.png"
+          width = "1450"
+          height = "400" >
+
+        <script type="text/javascript">
+            document.querySelector('#search').addEventListener('input', (e) => {
+              if (e.currentTarget.value=="") {
+                clear()
+              }
+            })
+            const p = document.querySelectorAll(".search");
+
+            function clear() {
+              let mark1 = new RegExp("<mark>", "g");
+              let mark2 = new RegExp("</mark>", "g");
+              for (text of p) {
+                text.innerHTML = (text.innerHTML).replace(mark1, "");
+                text.innerHTML = (text.innerHTML).replace(mark2, "");
+              }
+            }
+
+            function look() {
+              clear()
+              let input = document.querySelector("#search").value;
+              if (input !== "") {
+                let regExp = new RegExp(input, "gi");
+                for (text of p) {
+                  text.innerHTML = (text.innerHTML).replace(regExp, "<mark>$&</mark>");
+                }
+              }
+            }
+          </script>
+    </body>
+</html>
